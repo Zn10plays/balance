@@ -1,4 +1,4 @@
-# An inverted pendulum car robot
+# An Inverted Pendulum Cart Robot
 This project holds the source code for a inverted pendulum car robot. The code is written primarily in cpp and is intended to be used with the mjbots family of tools. 
 
 ## Installation 
