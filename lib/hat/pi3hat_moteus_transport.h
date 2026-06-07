@@ -24,7 +24,7 @@
 
 #include "pi3hat.h"
 
-#include "moteus_transport.h"
+#include "moteus/moteus_transport.h"
 #include "realtime.h"
 
 namespace mjbots {

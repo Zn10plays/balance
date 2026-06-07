@@ -1,20 +1,34 @@
 // Constants.h
 #pragma once
 
-namespace config {
-    inline constexpr int RIGHT_MOT_ID = 2;
-    inline constexpr int RIGHT_MOT_RATIO = 10;
+namespace CONFIG {
+    extern const int RIGHT_MOT_ID;
+    extern const int RIGHT_MOT_RATIO;
 
-    inline constexpr int LEFT_MOT_ID = 1;
-    inline constexpr int LEFT_MOT_RATIO = 8;
+    extern const int LEFT_MOT_ID;
+    extern const int LEFT_MOT_RATIO;
 
     // pitch pid gains
-    inline constexpr int PITCH_KP = 0;
-    inline constexpr int PITCH_KI = 0;
-    inline constexpr int PITCH_KD = 0;
+    extern const double PITCH_KP;
+    extern const double PITCH_KI;
+    extern const double PITCH_KD;
+
+    extern const double POS_KP;
+    extern const double POS_KI;
+    extern const double POS_KD;
 
     // yaw pid gains
-    inline constexpr int YAW_KP = 0;
-    inline constexpr int YAW_KI = 0;
-    inline constexpr int YAW_KD = 0;
+    extern const double YAW_KP;
+    extern const double YAW_KI;
+    extern const double YAW_KD;
+
+    // dynamic limits
+    extern const double MAX_ALPHA;
+    extern const double MAX_VEL;
+
+    // frequency
+    extern const double CTRL_RATE; // in hz 
+
+    // max tilt angle
+    extern const double MAX_HOMING_TILT_ANGLE;
 }
