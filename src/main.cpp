@@ -112,7 +112,7 @@ int main() {
         commands_to_send.clear();
         replies_to_receive.clear();
 
-        // 1. CYCLE TRANSPORT (Send previous loop's commands, get current state)
+        // get current state
         moteus::BlockingCallback cbk;
         transport->Cycle(
             commands_to_send.data(), 
@@ -148,18 +148,13 @@ int main() {
         // OUTER LOOP (Position Controller)
         // Goal: Keep displacement at 0.0. 
         // Output: A "Target Pitch" to lean the robot toward home.
-        double target_pitch = position_controller.calculate(1, robot_x_displacement);
+        double target_pitch = position_controller.calculate(0, robot_x_displacement);
 
-        // CRITICAL: We must limit the max lean angle requested by the outer loop!
-        // If the robot gets bumped 2 meters away, the PID might request a 45-degree lean, 
-        // causing it to faceplant. Limit it to +/- a safe recovery angle (e.g., 10 degrees).
+        // Clamp max tilt
         target_pitch = clamp(target_pitch, -CONFIG::MAX_HOMING_TILT_ANGLE, CONFIG::MAX_HOMING_TILT_ANGLE);
 
         // INNER LOOP (Pitch Controller)
-        // Goal: Make the current pitch match the target pitch.
-        // Output: Required Motor Velocity.
         double target_velocity = -pitch_controller.calculate(target_pitch, angles.pitch);
-        // target_velocity = 1.0 / 12.0 * std::pow(target_velocity + 1e-4, 3) + target_velocity;
 
         // ==============================================================================
 
