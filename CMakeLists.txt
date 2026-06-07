@@ -11,7 +11,7 @@ add_executable(torque_ctrl
 )
 
 add_executable(bot
-    src/claude.cpp
+    src/main.cpp
     src/constants.cpp
     src/PID.cpp
     lib/hat/pi3hat.cc
