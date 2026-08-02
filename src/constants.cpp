@@ -9,7 +9,7 @@ namespace CONFIG {
 
     const double PITCH_KP = 1.2;
     const double PITCH_KI = 0.0;
-    const double PITCH_KD = 1;
+    const double PITCH_KD = .4;
 
     const double POS_KP = 0.0;
     const double POS_KI = 0.0;
