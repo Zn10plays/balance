@@ -6,7 +6,7 @@ The project uses **gcc** and **cmake**, they must be installed in order to build
 
 ```bash
 sudo apt update
-sudo apt install bluez bluez-tools libbluetooth-dev
+sudo apt install bluetooth bluez bluez-tools libbluetooth-dev
 ```
 
 **Build** steps are as follows
